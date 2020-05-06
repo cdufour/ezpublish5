@@ -1,7 +1,14 @@
 <nav>
-    <ul>
-        <li>Lien 1</li>
-        <li>Lien 2</li>
-        <li>Lien 3</li>
+    <ul style="display:inline-block">
+        <li>
+            <a href="{{ path('formation_example_default') }}">Default</a>
+        </li>
+        <li>
+            <a href="{{ path('formation_example_form') }}">Form</a>
+        </li>
+        <li>
+            <a href="{{ path('formation_example_square', 
+                {'width': 200, 'color': '55FF99'}) }}">Square</a>
+        </li>
     </ul>
 </nav>

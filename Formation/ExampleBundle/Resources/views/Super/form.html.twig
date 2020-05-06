@@ -1,0 +1,16 @@
+{% extends 'FormationExampleBundle::base.html.twig' %}
+
+{% block title %}Form{% endblock %}
+
+{% block body %}
+
+    <h1>Form</h1>
+    
+    <p>Ce formulaire permet l'ajout d'un folder dans le CMS</p>
+
+    <form action="/post" method="post">
+        <input type="text" name="name" placeholder="Nom du folder" />
+        <input type="submit" name="submit" />
+    </form>
+
+{% endblock %}

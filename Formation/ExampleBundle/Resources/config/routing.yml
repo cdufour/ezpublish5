@@ -18,6 +18,17 @@ formation_example_default:
     path:     /default
     defaults: { _controller: FormationExampleBundle:Super:default }
 
-formation_example_studentform:
-    path:     /studentform
-    defaults: { _controller: FormationExampleBundle:Default:studentForm }
+formation_example_form:
+    path:     /form
+    defaults: { _controller: FormationExampleBundle:Super:form }
+    methods: [GET]
+
+formation_example_post:
+    path:     /post
+    defaults: { _controller: FormationExampleBundle:Super:post }
+    methods: [POST]
+
+formation_example_json:
+    path:     /json
+    defaults: { _controller: FormationExampleBundle:Super:json }
+    methods: [GET]

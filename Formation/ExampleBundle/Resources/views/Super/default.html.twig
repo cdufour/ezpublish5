@@ -1,9 +1,28 @@
-{# {% extends "FormationExampleBundle::base.html.twig" %}
+{% extends "FormationExampleBundle::base.html.twig" %}
 
-{% block title %}FormationExampleBundle:Super:default{% endblock %}
+{% block title %} Default {% endblock %}
 
 {% block body %}
-<h1>Welcome to the Super:default page</h1>
-{% endblock %} #}
+<h1>Default template</h1>
 
-<h2>Default template</h2>
+<button id="btnJson">Test json</button>
+<div id="divResult"></div>
+
+
+
+<script>
+
+var btnJson = document.getElementById('btnJson');
+var divResult = document.getElementById('divResult');
+
+btnJson.addEventListener('click', e => {
+    fetch('/json')
+        .then(res => res.json())
+        .then(res => {
+            divResult.innerText = res.firstname;
+        })
+
+})
+
+</script>
+{% endblock %}

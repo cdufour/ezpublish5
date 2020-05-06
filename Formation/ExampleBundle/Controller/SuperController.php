@@ -5,6 +5,14 @@ namespace Formation\ExampleBundle\Controller;
 //use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 class SuperController extends Controller
 {
     public function defaultAction()
@@ -30,17 +38,58 @@ class SuperController extends Controller
 
 
         // Update content
-        $fields = array(
-            array('name' => 'name', 'value' => 'Super Ultra Maxi Folder')
-        );
-        $updatedContent = $this->updateContent(121, $fields); // NodeId 121
+        // $fields = array(
+        //     array('name' => 'name', 'value' => 'Super Ultra Maxi Folder')
+        // );
+        // $updatedContent = $this->updateContent(121, $fields); // NodeId 121
 
 
         // Delete content
         //$this->deleteContent(118); // ObjectId 118
 
+
+        // Search content
+        //$this->searchContent();
+
         return $this->render('FormationExampleBundle:Super:default.html.twig', 
         array());    
+    }
+
+    public function formAction()
+    {
+        return $this->render('FormationExampleBundle:Super:form.html.twig', 
+        array()); 
+    }
+
+    public function postAction(Request $request)
+    {
+        $folderName = $request->get('name');
+
+        if ($folderName && strlen($folderName) > 2) {
+
+            $fields = array(
+                array('name' => 'name', 'value' => $folderName)
+            );
+
+            try {
+                $this->createContent(2, 'folder', $fields);
+                return $this->render(
+                    'FormationExampleBundle:Super:post.html.twig', 
+                    array('folderName' => $folderName)); 
+            } catch (Exception $e) {
+                return new Response('Problem...');
+            }
+            
+        } else {
+            return new Response('Name empty or too short');
+        }
+
+    }
+
+    public function jsonAction()
+    {
+        $student = array('firstname' => 'Chris');
+        return new JsonResponse($student);
     }
 
     private function createContent($parentLocationId, $contentType, $fields)
@@ -118,6 +167,28 @@ class SuperController extends Controller
         $repository->getContentService()->deleteContent($contentInfo);
     }
 
+    private function searchContent()
+    {
+        $query = new LocationQuery();
+        $query->criterion = 
+            new Criterion\ContentTypeIdentifier( array( 'article', 'folder' ) );
+
+        $searchResult = $this->getRepository()
+            ->getSearchService()
+            ->findLocations( $query )->searchHits;
+
+        // Réagencement des données
+        $contentArray = array();
+
+        foreach( $searchResult as $searchHit ) {
+            $content = $searchHit->valueObject;
+            $contentArray[] = $content;
+        }
+
+        echo '<pre>';
+        var_dump($contentArray);
+        echo '</pre>';
+    }
 
 
 }

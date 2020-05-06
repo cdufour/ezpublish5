@@ -1,0 +1,11 @@
+{% extends 'FormationExampleBundle::base.html.twig' %}
+
+{% block title %}Form{% endblock %}
+
+{% block body %}
+
+    <h1>Post</h1>
+    <p class="text-success">Le folder {{ folderName }} a été enregistré</p>
+    <a href="{{ path('formation_example_form') }}">Ajout un nouveau folder</a>
+
+{% endblock %}

@@ -52,12 +52,4 @@ class DefaultController extends Controller
             'FormationExampleBundle:Default:student.html.twig', 
             array('studentId' => $studentId));
     }
-
-    public function studentFormAction()
-    {
-        return $this->render(
-            'FormationExampleBundle:Default:studentform.html.twig',
-            array()
-        );
-    }
 }
