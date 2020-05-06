@@ -1,0 +1,23 @@
+formation_example_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FormationExampleBundle:Default:index }
+
+formation_example_test:
+    path: /test
+    defaults: { _controller: FormationExampleBundle:Default:test }
+
+formation_example_square:
+    path:     /square/{width}/{color}
+    defaults: { _controller: FormationExampleBundle:Default:square }
+
+formation_example_student:
+    path:     /student/{studentId}
+    defaults: { _controller: FormationExampleBundle:Default:student }
+
+formation_example_default:
+    path:     /default
+    defaults: { _controller: FormationExampleBundle:Super:default }
+
+formation_example_studentform:
+    path:     /studentform
+    defaults: { _controller: FormationExampleBundle:Default:studentForm }

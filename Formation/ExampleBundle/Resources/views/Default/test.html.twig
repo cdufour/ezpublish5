@@ -1,0 +1,36 @@
+{% extends 'FormationExampleBundle::base.html.twig' %}
+
+{% block title %}Test{% endblock %}
+
+{% block body %}
+
+{% set main_title="Students" %}
+{% set route="formation_example_homepage" %}
+
+{# <h1>Etudiants</h1> #}
+<h1>{{ main_title }}</h1>
+
+<div>
+{{ render( controller("FormationExampleBundle:Super:default") ) }}
+</div>
+
+{# <img src="{{ asset("/souk/wolf.jpg") }}" /> #}
+
+{# <a href="/hello/toto">Hello Toto</a> #}
+<a href="{{ path(route, {'name':'Toto'}) }}">Hello Toto</a>
+
+{% if display %}
+
+    <ul>
+    {% for student in students %}
+        <li>
+            <a href="{{ path("formation_example_homepage", {'name':student}) }}">{{student}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endif %}
+{% endblock %}
+
+
+

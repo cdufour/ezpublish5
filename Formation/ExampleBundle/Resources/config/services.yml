@@ -1,0 +1,13 @@
+parameters:
+    default_coef: 10
+    logger.class: Formation\ExampleBundle\Helper\Logger
+    translator.class: Formation\ExampleBundle\Helper\Translator
+
+services:
+    formation_example.calculate:
+        class: Formation\ExampleBundle\Helper\Calculate
+        arguments: [@formation_example.logger, %default_coef%]
+    formation_example.logger:
+        class: %logger.class%
+    formation_example.translator:
+        class: %translator.class%
