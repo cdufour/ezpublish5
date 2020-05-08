@@ -1,0 +1,30 @@
+*** Formation eZ Publish 5 (2014.11): Installation sous Windows ***
+
+1/ Télécharger et Installer XAMPP dans une version compatible (5.6.39)
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.39/xampp-win32-5.6.39-0-VC11-installer.exe/download
+Par défaut, xampp s'installe dans le dossier c:\xampp
+Le Xampp Panel permet de démarrer/éteindre les serveurs apache et mysql
+
+2/ Télécharger eZ Publish 5
+https://share.ez.no/content/download/161941/957952/version/8/file/ezpublish5_community_project-2014.11.1-gpl-full.tar.gz
+
+3/ Désarchiver le fichier dans le document root d'apache sous le nom de votre choix: c:\xampp\htdocs\<ezpublish>
+
+4/ Créer un virtual host pour l'application ezpub en éditant le fichier c:\xampp\apache\conf\extra\httpd-vhosts.conf
+Modèle de virtual host: https://github.com/ezsystems/ezpublish-community/blob/master/doc/apache2/vhost.template
+
+5/ Si nécessaire, décommenter les lignes suivantes dans le fichier c:\xampp\php\php.ini
+extension=php_intl.dll
+extension=php_xsl.dll
+
+6/ Créer une nouvelle base de données et un nouvel utilisateur
+- soit par un outil en mode graphique
+- soit en ligne de commande:
+Dans l'invite de commande windows, se connecter à mysql par la commande: mysql -uroot
+Puis, en remplaçant les infos entre chevrons (<>) par celles de votre choix, :
+mysql> CREATE DATABASE <database> CHARACTER SET utf8;
+mysql> GRANT ALL ON <database>.* TO <user>@<ezp_host> IDENTIFIED BY '<password>';
+mysql> FlUSH PRIVILEGES;
+N.B: si commande mysql est inconnue, ajouter son emplacement dans la variable d'environnment Path
+
+7/ Ouvrir le navigateur à l'adresse http://localhost et suivre les étapes d'installation d'eZ Publish

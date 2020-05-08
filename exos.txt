@@ -1,0 +1,24 @@
+*** Formation eZ Publish 5: exercices ***
+
+------------
+Créer une route  /square/{width}/{color}
+Une requête en GET sur cette url affichera en retour un carré de côté width (pixels) 
+et de couleur color (valeur en hexadécimal)
+
+Exemple: /square/200/55FFAA
+
+- Si la valeur de width est supérieure à 500, affichez à la place le message
+suivant: "la largeur doit être inférieure à 500"
+------------
+
+Créer une route students/{studentId}
+Le serveur renverra une réponse affichant la photo de l'étudiant
+(les photos sont des fichiers statiques à incorporer à votre bundle)
+------------
+
+Créer un service formation_example.translation exposant une méthode translate.
+La méthode translate prend un terme anglais en entrée ainsi qu'un identifiant de langue
+elle renvoie le terme traduit dans la langue demandée si elle le trouve, sinon
+elle renvoie le message "no translation found".
+
+Utiliser un tableau associatif php pour créer le dictionnaire

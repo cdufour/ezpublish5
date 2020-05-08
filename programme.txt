@@ -1,0 +1,46 @@
+*** Formation eZ Publish 5 (2014.11) / Symfony - 4-6 mai 2020 - programme ***
+
+— Jour 1 : eZ Publish, côté utilisateur/Administrateur —
+Introduction
+Installation du CMS, prérequis
+Présentation de l'interface administrateur
+Les différents types (classes) de contenu
+Gérer les contenus: ajout, modification, suppression
+Hiérarchisation des contenus
+Gérer les utilisateurs
+Administrer rôles et permissions
+Cycle de vie d'un contenu 
+Internationalisation
+
+
+— Jour 2 : eZ Publish, côté développeur I —
+Introduction à Symfony 2
+La structure MVC
+Architecture d’une application eZ Publish/symfony
+La barre Profiler
+Dissection d’une requête HTTP
+Travailler avec le moteur de template Twig
+Gérer les assets
+    - ajout de feuilles de styles
+    - ajout de scripts
+Modifier l’apparence d’une application existante
+Hiérarchie, héritage et inclusion de templates
+Routes, contrôleurs et actions
+Créer une route avec et sans paramètre
+Lier une route à un contrôleur
+Communication entre contrôleurs et vues
+TP: création d’un nouveau bundle
+
+
+— Jour 3 : eZ Publish, côté développeur II  —
+Fichiers de configuration YAML
+Containers et injection de dépendances
+Avantage et utilisation de services
+Introduction à l’API Public
+Services d’accès aux données
+eZ Publish Api Repository - Opération CRUD sur les contenus (content objects)
+    - création, lecture, modification, suppression de contenus par programmation
+Utilisation des formulaires Symfony
+    - création d’un formulaire
+    - affichage d’un formulaire
+TP: création d’un service de recherche dynamique

@@ -1,0 +1,19 @@
+*** Formation eZ Publish 5: liens utiles ***
+
+# eZ Publish 5: documentation officielle
+https://doc.ez.no/eZ-Publish/Technical-manual/5.x
+
+# eZ Publish 5 / Symfony: tutoriel youtube (en)
+https://www.youtube.com/playlist?list=PLyu1C8yrMaiigBi-Iu8f4IIpFcpwC-MBi
+
+# eZ Publish 5: Cheat Sheet
+https://github.com/dspe/ez5_cheatsheet
+
+# eZ Publish 5: Fetching content
+https://www.mugo.ca/Blog/An-introduction-to-fetching-content-in-eZ-Publish-4-and-eZ-Publish-5
+
+# Symfony 2: routing cheatsheet
+http://overapi.com/static/cs/symfony2-routing_en.pdf
+
+# Symfony 2: twig cheatsheet
+http://overapi.com/static/cs/symfony2-twig.pdf
